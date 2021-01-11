@@ -1,1 +1,1833 @@
-"use strict";let zzfx,zzfxV,zzfxX,zzfxR;zzfxV=.3,zzfx=((z=1,t=.05,f=220,x=0,a=0,e=.1,n=0,h=1,M=0,R=0,i=0,r=0,s=0,o=0,u=0,c=0,d=0,X=1,b=0,w=0)=>{let l,m,C=2*Math.PI,V=M*=500*C/zzfxR**2,A=(0<u?1:-1)*C/4,B=f*=(1+2*t*Math.random()-t)*C/zzfxR,I=[],P=0,g=0,k=0,D=1,S=0,j=0,p=0;for(R*=500*C/zzfxR**3,u*=C/zzfxR,i*=C/zzfxR,r*=zzfxR,s=zzfxR*s|0,m=(x=99+zzfxR*x)+(b*=zzfxR)+(a*=zzfxR)+(e*=zzfxR)+(d*=zzfxR)|0;k<m;I[k++]=p)++j%(100*c|0)||(p=n?1<n?2<n?3<n?Math.sin((P%C)**3):Math.max(Math.min(Math.tan(P),1),-1):1-(2*P/C%2+2)%2:1-4*Math.abs(Math.round(P/C)-P/C):Math.sin(P),p=(s?1-w+w*Math.sin(2*Math.PI*k/s):1)*(0<p?1:-1)*Math.abs(p)**h*z*zzfxV*(k<x?k/x:k<x+b?1-(k-x)/b*(1-X):k<x+b+a?X:k<m-d?(m-k-d)/e*X:0),p=d?p/2+(d>k?0:(k<m-d?1:(m-k)/d)*I[k-d|0]/2):p),P+=(l=(f+=M+=R)*Math.sin(g*u-A))-l*o*(1-1e9*(Math.sin(k)+1)%2),g+=l-l*o*(1-1e9*(Math.sin(k)**2+1)%2),D&&++D>r&&(f+=i,B+=i,D=0),!s||++S%s||(f=B,M=V,D=D||1);return(z=zzfxX.createBuffer(1,m,zzfxR)).getChannelData(0).set(I),(f=zzfxX.createBufferSource()).buffer=z,f.connect(zzfxX.destination),f.start(),f}),zzfxX=new(window.AudioContext||webkitAudioContext),zzfxR=44100;(()=>{const e=document.querySelector.bind(document),t=document.querySelectorAll.bind(document),o=(t="#000")=>{const o=e("meta[name=theme-color]");o&&o.setAttribute("content",t)},n=(e,t,o,n={})=>{e&&e.addEventListener(t,o,n)},c=(e,t)=>{if(e)for(let o in t)e.style[o]=t[o]},r=e=>{e&&e.parentNode.removeChild(e)},i=(e,t)=>{e.innerHTML=t},a=(e,t)=>e.classList.contains(t),s=(e,t)=>{e&&t.split(" ").forEach(t=>{e.classList.add(t)})},l=(e,t)=>{e&&t.split(" ").forEach(t=>{e.classList.remove(t)})},d=(e,t)=>{var o;return function(){clearTimeout(o),o=setTimeout(e,t)}},u=(e,t,o)=>{let n=0;const c=setInterval(()=>{n++,n>t&&clearInterval(c),e(n)},o);return c},m=[412,732],b=["😃","🤔","😴","😱","😭","😡","💀","🔥","🎊","💪","👏","👍"],p={blue:"#28c",red:"#a55"},h=guid(),v="share"in navigator;let f,g=0,y=!1,k="",w=!0;const T=e=>{w&&zzfx(...{click:[,,1675,,.06,.24,1,1.82,,,837,.06],interval:[,,1090,,.01,.13,,1.4,,,513,.08,,,,,,.65,.05],endGame:[,,20,.04,,.6,,1.31,,,-990,.06,.17,,,.04,.07],tokenMove:[,,150,.05,,.05,,1.3,,,,,,3],removeToken:[,,925,.04,.3,.6,1,.3,,6.27,-184,.09,.17],emoji:[,.5,847,.02,.3,.9,1,1.67,,,-294,.04,.13,,,,.1],king:[,,80,.3,.4,.7,2,.1,-.73,3.42,-430,.09,.17,,,,.19]}[e])},$=(e,t)=>`rgb(${{red:[150+10*t,85,85],blue:[34,136,180+10*t]}[e].join(" ")})`,E=()=>{const c=()=>{[...t(".se")].forEach(e=>l(e,"so")),i(e("#se-1"),""),e(".frm input").value=""},r=(t="",o=!1,n=!1)=>{C({type:4===g?2:3,localRoom:String(t),table:o,createRoom:n}),c(),s(e("#se-1"),"so"),i(e("#se-1"),`<h1>CODE: ${t}</h1><p>🔍 Waiting for friend to connect 🔎</p>`),f&&!o&&5===g&&f.on("dT",()=>{alert("The board has been disconnected so the game cannot be started :("),s(e(".bc"),"hi"),A()})};i(e(".s"),`<div class='lo wh ce'>\n        <div class='bc wh ce hi'>\n    <div class='mo ce'>\n      <button class='btn blue clm'>X</button>\n      <h2></h2>\n      <div class='se ce so' id=se-1></div>\n      <div class='se ce' id=se-2>\n        <button class='btn blue cta'></button>\n        <form class='ce frm'>\n          <input type='number' placeholder='Table code'/>\n          <button type='submit' class='btn red'>Join</button>\n        </form>\n      </div>\n      </div></div>\n        <div class='ti ce'><span>🔗</span>Draughts\n        <div class='ti-bt ce'>\n          ${v?"<button id=shr title=Share>📮</button>":""}\n          <button id=sou title=Sounds>${w?"🔊":"🔇"}</button>\n        </div></div>\n        <div class='cb ce'>\n          ${["<span>📴</span> PLAY OFFLINE","<span>🕹️</span> VS BOT","<span>🤖</span> BOT VS BOT","<span>🌎</span> PLAY ONLINE","<span>🤝</span> PLAY WITH A FRIEND","<span>🎉</span> PARTY MODE"].map((e,t)=>`<button class='btn ${t<3?"red":"blue"} ce'>${e}</button>`).join("")}\n        </div>\n        <h3>Developed by: <span target='_blank' rel='noopener noreferrer'>Haruki Andrews</h3>\n      </div>`),[...t(".lo .cb button")].forEach((t,o)=>n(t,"click",()=>{T("click"),g=o,o<=2?P(o):navigator.onLine?(c(),l(e(".bc"),"hi"),s(e("#se-"+(3===o?1:2)),"so"),e(".mo h2").textContent=["Play online!","Play with a friend!","Party mode!"][g-3],3===o?(C({type:1}),i(e("#se-1"),"<p>🔍 Looking for an opponent 🔎</p><p>This may take a few seconds, if you can't find an opponent you can create a room and play with a friend</p>")):e(".cta").textContent=4===o?"CREATE ROOM":"CREATE TABLE"):alert("Sorry, you must have an internet connection for this option")})),v&&n(e("#shr"),"click",e=>{e.preventDefault(),T("click"),navigator.share({title:"The last link",text:"Play Draughts 2020 edition by Haruki Andrews",url:location.href}).then(()=>{alert("Thanks for sharing")}).catch(e=>{alert(e)})}),n(e("#sou"),"click",()=>{w=!w,e("#sou").textContent=w?"🔊":"🔇",T("click")}),n(e(".clm"),"click",()=>{T("click"),s(e(".bc"),"hi"),A()}),n(e(".frm"),"submit",t=>{T("click"),t.preventDefault();const o=e(".frm input").value;isNaN(o)||5!==o.length?(alert("The code is not valid"),e(".frm input").focus()):r(o)}),n(e(".cta"),"click",()=>{T("click"),r(randomNumber(1e4,99999),5===g,!0)}),o()},x=(t,o,n="b")=>{const c=guid(),i=document.createElement("div");i.className="fof ce",i.id="f-"+c,i.style.left=t,i.style.top=o,i.innerHTML="404".split("").map(e=>`<span>${e}</span>`).join(""),n&&(e("."+n).appendChild(i),setTimeout(()=>{e("#f-"+c)&&r(e("#f-"+c))},4e3))},M=(r,d)=>{const m=Object.keys(p)[r];let b=!1,v=!1;const g=r===d;let y=[];const w=e=>({row:e<4?e:e<8?e-4:e-8,col:e<4?0:e<8?1:2}),$=()=>{[...t(".t-e")].forEach(e=>{e.disabled=!0,s(e,"di"),l(e,"r bl")})};i(e(".s"),`<div class='bw wh ce ${m}'>\n        <button class=cl>EXIT</button>\n        <div class='bc wh ce'><span></span><button class=cl>EXIT</button></div>\n        <div class='tu bo ce ${m}'>Your turn</div>\n        <div class='co ce'>\n          <div class='tp ce ${g?"tpr":""}'>${[...new Array(4)].map((e,t)=>`<button class=t-p id=tg-${t}></button>`).join("")}</div>\n          ${[...new Array(12)].map((e,t)=>`<button color=${m} disabled class='t-e cc-${t} ${m} di'id=o-${t}></button>`).join("")}\n        </div>\n      </div>`),["t-p","t-e"].forEach(o=>{[...t("."+o)].forEach(o=>{n(o,"click",o=>{const n=o.target.id.split("-");if(!b)if(T("click"),"o"===n[0]){[...t(".t-p")].forEach(e=>{l(e,"v")});const o=+n[1],{row:r,col:i}=w(o);let a=v?y.filter(e=>e[0].counter===o)[0]:y.filter(e=>e.counter===o)[0];v&&(a={...a[0],availableMoves:a[1]}),a&&(s(e(".tp"),"sht"),c(e(".tp"),{left:100*r+3*r+"px",top:100*i+8*i+"px"}),b=!0,f.emit("mV",{type:3,user:h,color:m,removeToken:v,id:a.id,room:k,data:a}))}else{const[t,n,c,r]=o.target.getAttribute("p").split("-");b=!0,f.emit("mV",{type:1,user:h,color:m,room:k,movement:[+t,+n,+c,""===r?-1:+r]}),$(),l(e(".tp"),"sht")}})})});const M=u(t=>{T("interval");const o=3-t-2+3;e(".bc span").textContent=o,o||s(e(".bc"),"hi")},3,500);n(e(".cl"),"click",()=>{T("click"),M&&clearInterval(M),f&&A(),E()}),o(p[m]),f&&(f.on("aC",t=>{if(b=!1,$(),l(e(".tp"),"sht"),l(e(".tu."+m),"sh"),y=t.data,v=t.removeToken||!1,t.color===m?(s(e(".tu."+m),"sh"),v?y.forEach(t=>{e("#o-"+t[0].counter).disabled=!1,l(e("#o-"+t[0].counter),"di"),s(e("#o-"+t[0].counter),"r")}):y.forEach(t=>{e("#o-"+t.counter).disabled=!1,l(e("#o-"+t.counter),"di"),t.isKing&&!a(e("#o-"+t.counter),"c")&&(s(e("#o-"+t.counter),"c"),T("king"))})):v&&y.forEach(t=>{t[1].forEach(t=>{s(e("#o-"+t.counter),"bl"),l(e("#o-"+t.counter),"di")})}),t&&t.tokenRemove&&Object.keys(t.tokenRemove)&&t.tokenRemove.c===m&&e("#o-"+t.tokenRemove.counter)){T("removeToken"),s(e("#o-"+t.tokenRemove.counter),"re");const{row:o,col:n}=w(t.tokenRemove.counter);x(100*o+3*o+"px",100*n+8*n+"px","co"),"vibrate"in navigator&&navigator.vibrate(500)}}),f.on("sT",t=>{b=!1,t.color===m&&t.data.availableMoves.forEach(({target:o,col:n,row:c,id:r=""})=>{e("#tg-"+o).setAttribute("p",`${n}-${c}-${t.data.id}-${r}`),s(e("#tg-"+o),"v")})}),f.on("gT",t=>{""!==t.scoreText&&s(e(".bc"),t.scoreText),l(e(".bc"),"hi"),e(".bc span").textContent=t.scoreText?t.scoreText+" win":"Tied game",T("endGame"),o(""!==t.scoreText?p[t.scoreText]:"#000")}),f.on("gD",e=>{const t=e&&e.roomData&&e.roomData.table&&e.roomData.table.id||"";e.userDisconnected===t&&(alert("Sorry the board has been disconnected :("),A(),E())}))},P=(v=0,g={baseColor:0,initialTurn:0,isPartyMode:!1})=>{const y=v>2,w=Math.round(m[0]/8-3),$=Object.keys(p);let M=!1;const P=y?+!g.baseColor:randomNumber(0,1),j=$[P],C=$[+!P],R={[j]:{score:12,human:!0,local:!y,counter:11},[C]:{score:12,human:!0,local:!0,counter:0}};2===v&&(R[C].human=!1),1!==v&&2!==v||(R[j].human=!1);let I,O=[],L=!1,N=y?g.initialTurn:randomNumber(0,1),D=0;const V=u(t=>{const o=3-t-2+3;T("interval"),e(".bc span").textContent=o,o||(s(e(".bc"),"hi"),H(Z($[N]).map(e=>e.id)),B(),R[$[N]].human||X())},3,500),S=[...new Array(8)].map((e,t)=>[...new Array(8)].map((e,o)=>t<3||t>4?t%2?o%2?{}:{c:t<3?j:C,id:D++,d:t<3?1:-1,col:t,row:o,counter:t<3?R[j].counter--:R[C].counter++,arrival:t<3?7:0}:o%2?{c:t<3?j:C,id:D++,d:t<3?1:-1,col:t,row:o,counter:t<3?R[j].counter--:R[C].counter++,arrival:t<3?7:0}:{}:{})),Y=()=>{const t=Object.keys(R),o=R[t[0]].score===R[t[1]].score?"":R[t[0]].score>R[t[1]].score?t[0]:t[1];""!==o&&s(e(".bc"),o),T("endGame"),l(e(".bc"),"hi"),e(".bc span").textContent=o?o+" win":"Tied game",g.isPartyMode&&f.emit("mV",{type:4,room:k,scoreText:o})},z=t=>{const o=U(t);if(o.c===$[N]){const n=a(e("#o-"+o.id),"r")?O.filter(e=>e[0].id===t)[0][1]:Q(o);n.length&&n.forEach(({col:t,row:n,id:r=""},i)=>{const a=e("#tg-"+i);a.setAttribute("p",`${t}-${n}-${o.id}-${r}`),s(a,"v"),c(a,{left:n*w+"px",top:t*w+"px"})})}},G=(t,o,i,d=-1)=>{const u=U(i),{hasListener:m=!1}=S[u.col][u.row];W(),l(e("#o-"+i),"sel"),T("tokenMove");let b={};d>=0&&(b=U(d),S[b.col][b.row]={},s(e("#o-"+d),"re"),x(b.row*w+"px",b.col*w+"px"),(!g.isPartyMode&&b.c===C&&2!==v||0===v)&&"vibrate"in navigator&&navigator.vibrate(500),T("removeToken")),S[t][o]={...S[u.col][u.row],row:o,col:t,hasListener:m,counterTransition:0,removedToken:d>=0,tokenRemove:b},S[u.col][u.row]={},L=!0,c(e("#o-"+i),{left:o*w+"px",top:t*w+"px"}),m||n(e("#o-"+i),"transitionend",t=>{const{propertyName:o}=t;if("transform"===o)r(e("#"+t.target.id));else if("left"===o||"top"===o){const o=U(+t.target.id.split("-")[1]);if(2==++S[o.col][o.row].counterTransition){o.arrival!==o.col||a(e("#"+t.target.id),"c")||(S[o.col][o.row].isKing=!0,s(e("#"+t.target.id),"c"),T("king")),L=!1,S[o.col][o.row].removedToken&&(R[$[+!N]].score--,e(".sc-"+$[+!N]).textContent=(R[$[+!N]].score<=9?"0":"")+R[$[+!N]].score);!!S[o.col][o.row].removedToken&&0!==_().length||(N=+!N),O=_();const n=O.length?O:Z($[N]);H(n.map(e=>O.length?e[0].id:e.id)),O.forEach(t=>{s(e("#o-"+t[0].id),"r"),t[1].forEach(t=>{s(e("#o-"+t.id),"bl")})}),B(n.length||O.length),n.length||O.length?(R[$[N]].human||X(),g.isPartyMode&&(f.emit("mV",{type:2,user:h,room:k,color:$[N],tokenRemove:S[o.col][o.row].tokenRemove,removeToken:!!O.length,data:O.length?O:n.map(e=>({...e,availableMoves:Q(e)}))}),j===$[N]?s(e(".b"),"ro"):l(e(".b"),"ro"))):Y()}}})},X=d(()=>{let e=0,t={};if(O.length){const o=randomNumber(0,O.length-1);e=O[o][0];const n=O[o][1];t=n[randomNumber(0,n.length-1)]}else{const o=Z($[N]);e=o[randomNumber(0,o.length-1)];const n=Q(e);t=n[randomNumber(0,n.length-1)]}const o=null===t.id||void 0===t.id?-1:t.id;y?(M=!0,f.emit("mV",{type:1,user:h,room:k,movement:[t.col,t.row,e.id,o]})):G(t.col,t.row,e.id,o)},y?0:500),B=(t=!0)=>{l(e(".bw"),$[+!N]),l(e(".tu."+$[+!N]),"sh"),t&&(s(e(".bw"),$[N]),g.isPartyMode||(s(e(".tu."+$[N]),"sh"),e(".tu."+$[N]).textContent=y&&!g.isPartyMode?"10":"Your turn"),o(p[$[N]]),y&&!g.isPartyMode&&(I=u(t=>{const o=9-t+1;o<=3&&T("interval"),o>=0&&(e(".tu."+$[N]).textContent=(o<=9?"0":"")+o,0===o&&R[$[N]].local&&X())},10,1e3)))},H=(t=[])=>{let o=!1;const n=$[N],c=$[+!N];[J(c),J(n)].forEach((c,r)=>{c.forEach(({id:c})=>{const i="#o-"+c;e(i).disabled=r?!(R[n].human&&R[n].local||g.isPartyMode)||(t.length?!t.includes(c):!r):!r,l(e(i),"r bl di"),!r||e(i).disabled||o||g.isPartyMode||(e(i).focus(),o=!0),r&&(R[n].human&&R[n].local||g.isPartyMode)&&e(i).disabled&&s(e(i),"di")})})},J=e=>S.map(t=>t.filter(t=>Object.keys(t).length&&t.c===e)).filter(e=>e.length).reduce((e,t)=>[...e,...t],[]),F=e=>e>=0&&e<8,K=(e,t)=>0===Object.keys(S[e][t]).length,W=()=>{[...t(".t-p")].forEach(e=>{l(e,"v")})},q=(e=!0)=>{[...t(".ems")].forEach(t=>{t.disabled=e})},U=e=>{for(let t=0;t<8;t++)for(let o=0;o<8;o++)if(Object.keys(S[t][o]).length&&S[t][o].id===e)return S[t][o]},_=()=>J($[N]).map(e=>{const t=Q(e,!0).filter(e=>F(e.col+e.direction)&&F(e.row+e.position)&&K(e.col+e.direction,e.row+e.position)).map(e=>({...e,col:e.col+e.direction,row:e.row+e.position}));return t.length?[e,t]:[]}).filter(e=>e.length&&e[1].length),Q=({isKing:e=!1,col:t,row:o,d:n,c:c},r=!1)=>[1,-1].map((i,a)=>[1,-1].map((s,l)=>!(!e&&i!==n||!F(t+i)||!F(o+s)||!(!r&&K(t+i,o+s)||r&&!K(t+i,o+s)&&S[t+i][o+s].c!==c))&&{col:t+i,row:o+s,direction:i,position:s,id:S[t+i][o+s].id,counter:S[t+i][o+s].counter,target:a+l+a}).filter(e=>e)).reduce((e,t)=>[...e,...t],[]),Z=e=>J(e).filter(e=>Q(e).length);i(e(".s"),`<div class='bw wh ce'>\n        <button class=cl>EXIT</button>\n        ${["to","bo"].map((e,t)=>`<div class='tu ${e} ce ${t?C:j}'></div>`).join("")}\n        <div class='sc ce'>${[j,C].map(e=>`<span class=sc-${e}>${R[e].score}</span>`).join("")}</div>\n        <div class=b style='height : ${8*w+20}px'>\n          ${S.map(e=>e.map(e=>Object.keys(e).length?`<button color=${e.c} disabled class='t-e ${g.isPartyMode?"cc-"+e.counter:""} ${e.c}' style='left : ${e.row*w}px; top : ${e.col*w}px;' id=o-${e.id}></button>`:"").join("")).join("")}${[...new Array(4)].map((e,t)=>`<button class=t-p id=tg-${t}></button>`).join("")}${y&&!g.isPartyMode?`<div class='ch-s'></div><div class='ch'><div class='ch-w'>${b.map((e,t)=>`<button id=em-${t} class='ems'>${e}</button>`).join("")}</div></div>`:""}\n        </div>\n        <div class='bc wh ce'><span></span><button class=cl>EXIT</button></div>\n      </div>`),["t-p","t-e"].forEach(e=>{[...t("."+e)].forEach(t=>{("t-e"!==e||R[t.getAttribute("color")].human&&R[t.getAttribute("color")].local&&!g.isPartyMode)&&n(t,"click",e=>{if(!L&&!M){y&&I&&clearInterval(I),g.isPartyMode||W();const t=e.target.id.split("-");if("o"===t[0])T("click"),z(+t[1]);else if(!g.isPartyMode){const[t,o,n,c]=e.target.getAttribute("p").split("-"),r=""===c?-1:+c;y?(M=!0,f.emit("mV",{type:1,user:h,room:k,movement:[+t,+o,+n,r]})):G(+t,+o,+n,r)}}})})}),y&&!g.isPartyMode&&[...t(".ems")].forEach(t=>{n(t,"click",t=>{T("emoji"),q();const o=t.target.id.split("-");s(e("#em-"+ +o[1]),"seb"),f.emit("mV",{type:5,user:h,room:k,emoji:+o[1]}),setTimeout(()=>{q(!1),l(e("#em-"+ +o[1]),"seb")},4e3)})}),n(e(".cl"),"click",()=>{T("click"),V&&clearInterval(V),I&&clearInterval(I),y&&f&&A(),E()}),y&&f&&(f.on("rV",e=>{y&&I&&clearInterval(I),M=!1;const t=e.user===h||g.isPartyMode;let[o,n,c,r]=e.movement;t||(c=23-c,o=7-o,n=7-n,r=r>=0?23-r:r),G(o,n,c,r)}),f.on("gD",()=>{V&&clearInterval(V),I&&clearInterval(I),Y(),y&&f&&A()}),f.on("sT",o=>{W(),[...t(".t-e")].forEach(e=>{l(e,"sel")}),s(e("#o-"+o.id),"sel"),z(o.id)}),f.on("rE",t=>{h!==t.user&&(T("emoji"),e(".ch-s").textContent=b[t.emoji],s(e(".ch-s"),"an"),setTimeout(()=>{e(".ch-s")&&l(e(".ch-s"),"an")},4e3))}),g.isPartyMode&&f.emit("mV",{type:2,user:h,room:k,color:$[N],data:Z($[N]).map(e=>({...e,availableMoves:Q(e)}))}))},j=d(()=>{const{w:t,h:o}={w:window.innerWidth,h:window.innerHeight},n=Math.min(t/m[0],o/m[1]),r=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent);c(e("body"),{zoom:(t<m[0]?Math.round(t/m[0]*100):100)+"%",transform:n>=1||r?`scale(${r?1:n})`:void 0})},100),A=()=>{y&&f&&(y=!1,k="",f.disconnect())},C=(t={})=>{f=io(),y=!0,f.on("connect",()=>{f.emit("nU",{...t,user:h},t=>{t&&(alert(t),e(".clm")?s(e(".bc"),"hi"):E(),A())})}),f.on("sG",e=>{k=e.room;const{color:t}=e.p1.user===h?e.p1:e.p2;3!==e.type?P(g,{baseColor:t,initialTurn:e.turn}):e.table&&e.table.user===h?P(g,{baseColor:e.turn,initialTurn:e.turn,isPartyMode:!0}):M(t,e.turn)})};n(document,"contextmenu",e=>e.preventDefault()),console.log("%cGame Developed by Haruki Andrews","color:red; font-size:20px; font-weight: bold; background-color: black;"),n(window,"load",()=>{const t=document.createElement("style");let o="";for(let e in p)document.documentElement.style.setProperty("--c-"+e,p[e]),o+=[...new Array(12)].map((t,o)=>`.cc-${o}.${e}:after{background:${$(e,o)}}`).join("");i(t,o),e("head").appendChild(t),c(e(".s"),{width:m[0]+"px",height:m[1]+"px"}),E(),n(window,"resize",j),j()})})()"serviceWorker"in navigator?navigator.serviceWorker.register("serviceworker.js").then(function(){console.log("[Event] Service Worker registered successfully")}).catch(function(){console.log("[Warning] Service worker registration failed")}):console.log("[Warning] ServiceWorker not found in navigator");
+'use strict';
+
+(() => {
+  // Utilidades
+  const $ = document.querySelector.bind(document);
+  const $$ = document.querySelectorAll.bind(document);
+
+  /**
+   * Para establecer el tema en el browser, en este caso mobile
+   * @param {*} color
+   */
+  const setThemeColor = (color = '#000') => {
+    const metaThemeColor = $('meta[name=theme-color]');
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute('content', color);
+    }
+  };
+
+  /**
+   * Para edicioar eventos
+   * @param {*} target
+   * @param {*} type
+   * @param {*} callback
+   * @param {*} parameter
+   */
+  const $on = (target, type, callback, parameter = {}) => {
+    if (target) {
+      target.addEventListener(type, callback, parameter);
+    }
+  };
+
+  /**
+   * Agregar estilos inline a un elemento
+   * @param {*} target
+   * @param {*} styles
+   */
+  const addStyle = (target, styles) => {
+    if (target) {
+      for (let style in styles) {
+        target.style[style] = styles[style];
+      }
+    }
+  };
+
+  /**
+   * Para eliminar un elemento en el dom
+   * @param {*} target
+   */
+  const removeElement = (target) => {
+    if (target) {
+      target.parentNode.removeChild(target);
+    }
+  };
+
+  /**
+   * Inyectar html en el dom
+   * @param {*} elemet
+   * @param {*} html
+   */
+  const setHtml = (elemet, html) => {
+    elemet.innerHTML = html;
+  };
+
+  /**
+   * Para verificar si un elemento ya tiene una clase asociada
+   * @param {*} target
+   * @param {*} className
+   */
+  const hasClass = (target, className) => target.classList.contains(className);
+
+  const addClass = (target, className) => {
+    if (target) {
+      className.split(' ').forEach((classText) => {
+        target.classList.add(classText);
+      });
+    }
+  };
+
+  /**
+   * Para eliminar una clase
+   * @param {*} target
+   * @param {*} className
+   */
+  const removeClass = (target, className) => {
+    if (target) {
+      className.split(' ').forEach((classText) => {
+        target.classList.remove(classText);
+      });
+    }
+  };
+
+  /**
+   * Determina si el dispotivo es mobile
+   */
+  const isMobile = () => /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  /**
+   * Para establecer un tiempo para hacer una acción en una función
+   * útil para el evento de resize
+   * @param {*} fn
+   * @param {*} delay
+   */
+  const debounce = (fn, delay) => {
+    var t;
+    return function () {
+      clearTimeout(t);
+      t = setTimeout(fn, delay);
+    };
+  };
+
+  /**
+   * Para establecer una interrupción
+   * @param {*} fn
+   * @param {*} max
+   * @param {*} delay
+   */
+  const setInterrupt = (fn, max, delay) => {
+    let counter = 0;
+    const interval = setInterval(() => {
+      counter++;
+      if (counter > max) {
+        clearInterval(interval);
+      }
+      fn(counter);
+    }, delay);
+
+    return interval;
+  };
+
+  /**
+   * Retonará las dimnesiones de la pantalla
+   */
+  const getDimensionsScreen = () => ({
+    w: window.innerWidth,
+    h: window.innerHeight,
+  });
+
+  // Fin de las utilidades
+
+  // Constantes del juego
+  const DIMENSIONS = [412, 732]; // width, height
+  const EMOJIS = [
+    '😃',
+    '🤔',
+    '😴',
+    '😱',
+    '😭',
+    '😡',
+    '💀',
+    '🔥',
+    '🎊',
+    '💪',
+    '👏',
+    '👍',
+  ];
+  const COLORS = { blue: '#28c', red: '#a55' };
+  const user = guid(); // Para identificar al usuario
+  const supportedShare = 'share' in navigator;
+  let modeType = 0; // El tipo de modo de juego que se ha seleccionado
+  let socket;
+  let connectedSocket = false; //Para indicar si se ha conectado el socket...
+  let GAME_ROOM = '';
+  let soundsActivated = true;
+
+  const playSounds = (type) => {
+    const sounds = {
+      click: [, , 1675, , 0.06, 0.24, 1, 1.82, , , 837, 0.06],
+      interval: [
+        ,
+        ,
+        1090,
+        ,
+        0.01,
+        0.13,
+        ,
+        1.4,
+        ,
+        ,
+        513,
+        0.08,
+        ,
+        ,
+        ,
+        ,
+        ,
+        0.65,
+        0.05,
+      ],
+      endGame: [
+        ,
+        ,
+        20,
+        0.04,
+        ,
+        0.6,
+        ,
+        1.31,
+        ,
+        ,
+        -990,
+        0.06,
+        0.17,
+        ,
+        ,
+        0.04,
+        0.07,
+      ],
+      tokenMove: [, , 150, 0.05, , 0.05, , 1.3, , , , , , 3],
+      removeToken: [, , 925, 0.04, 0.3, 0.6, 1, 0.3, , 6.27, -184, 0.09, 0.17],
+      emoji: [
+        ,
+        0.5,
+        847,
+        0.02,
+        0.3,
+        0.9,
+        1,
+        1.67,
+        ,
+        ,
+        -294,
+        0.04,
+        0.13,
+        ,
+        ,
+        ,
+        0.1,
+      ],
+      king: [
+        ,
+        ,
+        80,
+        0.3,
+        0.4,
+        0.7,
+        2,
+        0.1,
+        -0.73,
+        3.42,
+        -430,
+        0.09,
+        0.17,
+        ,
+        ,
+        ,
+        0.19,
+      ],
+    };
+
+    if (soundsActivated) {
+      zzfx(...sounds[type]);
+    }
+  };
+
+  /**
+   * Generar colores de lo tokens para el modo party
+   * @param {*} color
+   * @param {*} index
+   */
+  const getColorTokens = (color, index) => {
+    return `rgb(${{
+      red: [150 + index * 10, 85, 85],
+      blue: [34, 136, 180 + index * 10],
+    }[color].join(' ')})`;
+  };
+
+  /**
+   * Rederizará el lobby dle juego
+   */
+  const lobby = () => {
+    /**
+     * Resetea las opciones del modal
+     */
+    const hideMessagesModal = () => {
+      [...$$('.se')].forEach((v) => removeClass(v, 'so'));
+      setHtml($('#se-1'), '');
+      $('.frm input').value = '';
+    };
+
+    /**
+     * Configura la sala localmente
+     * @param {*} room
+     * @param {*} table
+     */
+    const configureRoom = (room = '', table = false, createRoom = false) => {
+      configureSocket({
+        type: modeType === 4 ? 2 : 3,
+        localRoom: String(room),
+        table,
+        createRoom,
+      });
+      hideMessagesModal();
+      addClass($('#se-1'), 'so');
+      setHtml(
+        $('#se-1'),
+        `<h1>CODE: ${room}</h1><p>🔍 Waiting for friend to connect 🔎</p>`
+      );
+
+      // Para indicar que se desconectó un tablero, sin haber iniciado una partida
+      if (socket && !table && modeType === 5) {
+        socket.on('dT', () => {
+          alert(
+            'The board has been disconnected so the game cannot be started :('
+          );
+          addClass($('.bc'), 'hi');
+          disconnectSocket();
+        });
+      }
+    };
+
+    const renderModalOptions = () => `<div class='bc wh ce hi'>
+    <div class='mo ce'>
+      <button class='btn blue clm'>X</button>
+      <h2></h2>
+      <div class='se ce so' id=se-1></div>
+      <div class='se ce' id=se-2>
+        <button class='btn blue cta'></button>
+        <form class='ce frm'>
+          <input type='number' placeholder='Table code'/>
+          <button type='submit' class='btn red'>Join</button>
+        </form>
+      </div>
+      </div></div>`;
+
+    const renderButtons = () =>
+      [
+        '<span>📴</span> PLAY OFFLINE',
+        '<span>🕹</span> VS BOT',
+        '<span>🤖</span> BOT VS BOT',
+        '<span>🌎</span> PLAY ONLINE',
+        '<span>🤝</span> PLAY WITH A FRIEND',
+        '<span>🎉</span> PARTY MODE',
+      ]
+        .map(
+          (v, i) =>
+            `<button class='btn ${i < 3 ? 'red' : 'blue'} ce'>${v}</button>`
+        )
+        .join('');
+
+    setHtml(
+      $('.s'),
+      `<div class='lo wh ce'>
+        ${renderModalOptions()}
+        <div class='ti ce'><span>🔗</span>The last link
+        <div class='ti-bt ce'>
+          ${supportedShare ? '<button id=shr title=Share>📮</button>' : ''}
+          <button id=sou title=Sounds>${soundsActivated ? '🔊' : '🔇'}</button>
+        </div></div>
+        <div class='cb ce'>
+          ${renderButtons()}
+        </div>
+        <h3>Developed by: <a href='https://twitter.com/ostjh' target='_blank' rel='noopener noreferrer'>Jorge Rubiano</h3>
+      </div>`
+    );
+
+    [...$$('.lo .cb button')].forEach((elemet, index) =>
+      $on(elemet, 'click', () => {
+        playSounds('click');
+        modeType = index;
+        if (index <= 2) {
+          createBoard(index);
+        } else {
+          if (navigator.onLine) {
+            hideMessagesModal();
+            removeClass($('.bc'), 'hi');
+            addClass($(`#se-${index === 3 ? 1 : 2}`), 'so');
+
+            $('.mo h2').textContent = [
+              'Play online!',
+              'Play with a friend!',
+              'Party mode!',
+            ][modeType - 3];
+
+            if (index === 3) {
+              // Se debe conectar al socket
+              configureSocket({ type: 1 });
+              setHtml(
+                $('#se-1'),
+                `<p>🔍 Looking for an opponent 🔎</p><p>This may take a few seconds, if you can't find an opponent you can create a room and play with a friend</p>`
+              );
+            } else {
+              $('.cta').textContent =
+                index === 4 ? 'CREATE ROOM' : 'CREATE TABLE';
+            }
+          } else {
+            alert(
+              'Sorry, you must have an internet connection for this option'
+            );
+          }
+        }
+      })
+    );
+
+    if (supportedShare) {
+      $on($('#shr'), 'click', (e) => {
+        e.preventDefault();
+        playSounds('click');
+        navigator
+          .share({
+            title: 'The last link',
+            text:
+              'Play The last link #js13k 2020 edition by Jorge Rubiano @ostjh',
+            url: location.href,
+          })
+          .then(() => {
+            alert('Thanks for sharing');
+          })
+          .catch((err) => {
+            alert(err);
+          });
+      });
+    }
+
+    $on($('#sou'), 'click', () => {
+      soundsActivated = !soundsActivated;
+      $('#sou').textContent = soundsActivated ? '🔊' : '🔇';
+      playSounds('click');
+    });
+
+    /** Para cerrar el modal */
+    $on($('.clm'), 'click', () => {
+      playSounds('click');
+      addClass($('.bc'), 'hi');
+      disconnectSocket();
+    });
+
+    $on($('.frm'), 'submit', (e) => {
+      playSounds('click');
+      e.preventDefault();
+      const room = $('.frm input').value;
+      if (!isNaN(room) && room.length === 5) {
+        configureRoom(room);
+      } else {
+        alert('The code is not valid');
+        $('.frm input').focus();
+      }
+    });
+
+    $on($('.cta'), 'click', () => {
+      playSounds('click');
+      configureRoom(randomNumber(10000, 99999), modeType === 5, true);
+    });
+
+    setThemeColor();
+  };
+
+  /**
+   * Crearrá un elemento para mostrar el mensaje de 404 cuando se elimina un token
+   * @param {*} left
+   * @param {*} top
+   * @param {*} element
+   */
+  const render404 = (left, top, element = 'b') => {
+    const id = guid();
+    const div = document.createElement('div');
+    div.className = 'fof ce';
+    div.id = `f-${id}`;
+    div.style.left = left;
+    div.style.top = top;
+    div.innerHTML = '404'
+      .split('')
+      .map((v) => `<span>${v}</span>`)
+      .join('');
+
+    if (element) {
+      $(`.${element}`).appendChild(div);
+      setTimeout(() => {
+        if ($(`#f-${id}`)) {
+          removeElement($(`#f-${id}`));
+        }
+      }, 4000);
+    }
+  };
+
+  /**
+   * Para renderizar el "control remoto"
+   * @param {*} color
+   */
+  const renderControl = (indexColor, initialTurn) => {
+    const color = Object.keys(COLORS)[indexColor];
+    let emitSocket = false;
+    let removeToken = false;
+    // Me indica si es el usario es el que se encuentra inicialmente en la parte de abajo del escensario
+    // Con esto se sabe que se deben oponer los valoes y/o girar los elementos
+    const isBelow = indexColor === initialTurn;
+    let availableMovements = [];
+
+    const getRowCol = (index) => ({
+      row: index < 4 ? index : index < 8 ? index - 4 : index - 8,
+      col: index < 4 ? 0 : index < 8 ? 1 : 2,
+    });
+
+    /**
+     * Establece el estado inicial de los tokens
+     */
+    const resetTokens = () => {
+      [...$$('.t-e')].forEach((e) => {
+        e.disabled = true;
+        addClass(e, 'di');
+        removeClass(e, 'r bl');
+      });
+    };
+
+    /**
+     * Oculta los botones de selección de movimiento
+     */
+    const removeTargetPoint = () => {
+      [...$$('.t-p')].forEach((e) => {
+        removeClass(e, 'v');
+      });
+    };
+
+    /**
+     * Renderiza los botones de selección de movimiento
+     */
+    const renderTargetPoints = () =>
+      [...new Array(4)]
+        .map((_, index) => `<button class=t-p id=tg-${index}></button>`)
+        .join('');
+
+    /**
+     * Renderizará los tokens del "control remoto"
+     */
+    const renderTokens = () =>
+      [...new Array(12)]
+        .map(
+          (_, i) =>
+            `<button color=${color} disabled class='${`t-e cc-${i} ${color} di`}'id=o-${i}></button>`
+        )
+        .join('');
+
+    setHtml(
+      $('.s'),
+      `<div class='bw wh ce ${color}'>
+        <button class=cl>EXIT</button>
+        <div class='bc wh ce'><span></span><button class=cl>EXIT</button></div>
+        <div class='tu bo ce ${color}'>Your turn</div>
+        <div class='co ce'>
+          <div class='tp ce ${
+            isBelow ? 'tpr' : ''
+          }'>${renderTargetPoints()}</div>
+          ${renderTokens()}
+        </div>
+      </div>`
+    );
+
+    /**
+     * Para establecer los eventos para los tokes y los botones de selección de movimiento
+     */
+    ['t-p', 't-e'].forEach((event) => {
+      [...$$(`.${event}`)].forEach((elemet) => {
+        $on(elemet, 'click', (e) => {
+          // Quito la visibilidad de los target points seleccioandos
+          const idElement = e.target.id.split('-');
+          if (!emitSocket) {
+            playSounds('click');
+            if (idElement[0] === 'o') {
+              removeTargetPoint();
+              const index = +idElement[1];
+              const { row, col } = getRowCol(index);
+
+              let availableMoves = !removeToken
+                ? availableMovements.filter((v) => v.counter === index)[0]
+                : availableMovements.filter((v) => v[0].counter === index)[0];
+
+              if (removeToken) {
+                availableMoves = {
+                  ...availableMoves[0],
+                  availableMoves: availableMoves[1],
+                };
+              }
+
+              if (availableMoves) {
+                addClass($('.tp'), 'sht');
+                addStyle($('.tp'), {
+                  left: `${100 * row + row * 3}px`,
+                  top: `${100 * col + col * 8}px`,
+                });
+
+                emitSocket = true;
+                socket.emit('mV', {
+                  type: 3,
+                  user,
+                  color,
+                  removeToken,
+                  id: availableMoves.id,
+                  room: GAME_ROOM,
+                  data: availableMoves,
+                });
+              }
+            } else {
+              const [
+                destinationColumn,
+                destinationRow,
+                index,
+                indexOpponent,
+              ] = e.target.getAttribute('p').split('-');
+
+              emitSocket = true;
+              socket.emit('mV', {
+                type: 1,
+                user,
+                color,
+                room: GAME_ROOM,
+                movement: [
+                  +destinationColumn,
+                  +destinationRow,
+                  +index,
+                  indexOpponent === '' ? -1 : +indexOpponent,
+                ],
+              });
+
+              resetTokens();
+              removeClass($('.tp'), 'sht');
+            }
+          }
+        });
+      });
+    });
+
+    const intervalStart = setInterrupt(
+      (counter) => {
+        playSounds('interval');
+        const counterValue = 3 - counter - 2 + 3;
+        $('.bc span').textContent = counterValue;
+        if (!counterValue) {
+          addClass($('.bc'), 'hi');
+        }
+      },
+      3,
+      500
+    );
+
+    $on($('.cl'), 'click', () => {
+      playSounds('click');
+      if (intervalStart) {
+        clearInterval(intervalStart);
+      }
+
+      if (socket) {
+        disconnectSocket();
+      }
+
+      lobby();
+    });
+
+    setThemeColor(COLORS[color]);
+
+    if (socket) {
+      socket.on('aC', (data) => {
+        emitSocket = false;
+        resetTokens();
+        removeClass($('.tp'), 'sht');
+        removeClass($(`.tu.${color}`), 'sh');
+        availableMovements = data.data;
+        removeToken = data.removeToken || false;
+        if (data.color === color) {
+          addClass($(`.tu.${color}`), 'sh');
+          // Itera los elementos
+          if (!removeToken) {
+            // Habilitar los tokens de forma normal
+            availableMovements.forEach((v) => {
+              $(`#o-${v.counter}`).disabled = false;
+              removeClass($(`#o-${v.counter}`), 'di');
+
+              // Para agregar la clase que indica que es un rey
+              if (v.isKing && !hasClass($(`#o-${v.counter}`), 'c')) {
+                addClass($(`#o-${v.counter}`), 'c');
+                playSounds('king');
+              }
+            });
+          } else {
+            // Se habilitan los tokens que pueden eliminar
+            availableMovements.forEach((v) => {
+              $(`#o-${v[0].counter}`).disabled = false;
+              removeClass($(`#o-${v[0].counter}`), 'di');
+              addClass($(`#o-${v[0].counter}`), 'r');
+            });
+          }
+        } else if (removeToken) {
+          // Se le adiciona la clase de link roto a los tokens que se pueden eliminar
+          availableMovements.forEach((v) => {
+            v[1].forEach((item) => {
+              addClass($(`#o-${item.counter}`), 'bl');
+              removeClass($(`#o-${item.counter}`), 'di');
+            });
+          });
+        }
+
+        if (data && data.tokenRemove && Object.keys(data.tokenRemove)) {
+          if (
+            data.tokenRemove.c === color &&
+            $(`#o-${data.tokenRemove.counter}`)
+          ) {
+            // Se encuentra el token que se debe ir
+            playSounds('removeToken');
+            addClass($(`#o-${data.tokenRemove.counter}`), 're');
+            const { row, col } = getRowCol(data.tokenRemove.counter);
+            render404(
+              `${100 * row + row * 3}px`,
+              `${100 * col + col * 8}px`,
+              'co'
+            );
+            if ('vibrate' in navigator) {
+              navigator.vibrate(500);
+            }
+          }
+        }
+      });
+
+      // Evento que indica que se ha seleccioando un token
+      socket.on('sT', (data) => {
+        emitSocket = false;
+        if (data.color === color) {
+          data.data.availableMoves.forEach(({ target, col, row, id = '' }) => {
+            $(`#tg-${target}`).setAttribute(
+              'p',
+              `${col}-${row}-${data.data.id}-${id}`
+            );
+            // Se agrega la clase de visibilidad
+            addClass($(`#tg-${target}`), 'v');
+          });
+        }
+      });
+
+      /**
+       * Para indicar el ganador
+       */
+      socket.on('gT', (data) => {
+        if (data.scoreText !== '') {
+          addClass($('.bc'), data.scoreText);
+        }
+
+        removeClass($('.bc'), 'hi');
+        $('.bc span').textContent = !data.scoreText
+          ? 'Tied game'
+          : `${data.scoreText} win`;
+
+        playSounds('endGame');
+        setThemeColor(data.scoreText !== '' ? COLORS[data.scoreText] : '#000');
+      });
+
+      socket.on('gD', (data) => {
+        // Buscar si el que se desconectó es el tablero
+        const boardID =
+          (data &&
+            data.roomData &&
+            data.roomData.table &&
+            data.roomData.table.id) ||
+          '';
+
+        if (data.userDisconnected === boardID) {
+          alert('Sorry the board has been disconnected :(');
+          disconnectSocket();
+          lobby();
+        }
+      });
+    }
+  };
+
+  /**
+   * Función que creará todo el board, además de manejar la lógica de la misma
+   * Para el modo online, los tokens contrarios se haría (23 - 13), en este case 13 es el indice
+   */
+  const createBoard = (
+    type = 0,
+    online = {
+      baseColor: 0,
+      initialTurn: 0,
+      isPartyMode: false,
+    }
+  ) => {
+    const isOnlineGame = type > 2;
+    const TOTAL_TILES = 8;
+    const DIMENSIONS_TILES = Math.round(DIMENSIONS[0] / TOTAL_TILES - 3);
+    const COLORS_TOKENS = Object.keys(COLORS);
+
+    // Vatiable que indica que se ha enviado un movimiento por el socket
+    let sendFromSocket = false;
+    // En partidas offline, se indicará el color base con el cual se contruirá el escenario
+    // En partidas online, este color deberá llegar del server
+    const RANDOM_START_COLOR = !isOnlineGame
+      ? randomNumber(0, 1)
+      : +!online.baseColor;
+
+    // Es el de arriba
+    const INITIAL_COLOR = COLORS_TOKENS[RANDOM_START_COLOR]; // Arriba
+    const OPPOSITE_COLOR = COLORS_TOKENS[+!RANDOM_START_COLOR]; // Abajo
+
+    const PLAYERS = {
+      [INITIAL_COLOR]: {
+        score: 12,
+        human: true,
+        local: !isOnlineGame,
+        counter: 11,
+      },
+      [OPPOSITE_COLOR]: {
+        score: 12,
+        human: true,
+        local: true,
+        counter: 0,
+      },
+    };
+
+    if (type === 2) {
+      PLAYERS[OPPOSITE_COLOR].human = false;
+    }
+
+    if (type === 1 || type === 2) {
+      PLAYERS[INITIAL_COLOR].human = false;
+    }
+
+    // Guadra los posibles token que puede capturar un jugador
+    let possibleCaptureOpponent = [];
+    // Me indica si se está moviendo un token, relacioando a la animación
+    let tokenMove = false;
+    // Indica aleatoriamente que jugador iniciará
+    // 0 para blue, 1 para rojo
+    let turn = !isOnlineGame ? randomNumber(0, 1) : online.initialTurn;
+    // Contador para indentificar a los tokens en el escenario
+    let cont = 0;
+    // Para el intervalo de contador en las partidas online
+    let intervalCounter;
+
+    // Para el intervalo de inicio del juego
+    const intervalStart = setInterrupt(
+      (counter) => {
+        const counterValue = 3 - counter - 2 + 3;
+        playSounds('interval');
+        $('.bc span').textContent = counterValue;
+        if (!counterValue) {
+          addClass($('.bc'), 'hi');
+          enableDisableTokens(
+            getTokensCanMoved(COLORS_TOKENS[turn]).map((v) => v.id)
+          );
+
+          showTurnMessage();
+
+          if (!PLAYERS[COLORS_TOKENS[turn]].human) {
+            makeBotMove();
+          }
+        }
+      },
+      3,
+      500
+    );
+
+    // Cagar los tiles
+    const tiles = [...new Array(TOTAL_TILES)].map((_, col) =>
+      [...new Array(TOTAL_TILES)].map((_, row) =>
+        col < 3 || col > 4
+          ? !(col % 2)
+            ? row % 2
+              ? {
+                  c: col < 3 ? INITIAL_COLOR : OPPOSITE_COLOR,
+                  id: cont++,
+                  d: col < 3 ? 1 : -1,
+                  col,
+                  row,
+                  counter:
+                    col < 3
+                      ? PLAYERS[INITIAL_COLOR].counter--
+                      : PLAYERS[OPPOSITE_COLOR].counter++,
+                  arrival: col < 3 ? TOTAL_TILES - 1 : 0,
+                }
+              : {}
+            : !(row % 2)
+            ? {
+                c: col < 3 ? INITIAL_COLOR : OPPOSITE_COLOR,
+                id: cont++,
+                d: col < 3 ? 1 : -1,
+                col,
+                row,
+                counter:
+                  col < 3
+                    ? PLAYERS[INITIAL_COLOR].counter--
+                    : PLAYERS[OPPOSITE_COLOR].counter++,
+                arrival: col < 3 ? TOTAL_TILES - 1 : 0,
+              }
+            : {}
+          : {}
+      )
+    );
+
+    /**
+     * Función que determinará el ganador
+     */
+    const determineWinner = () => {
+      const scoreKeys = Object.keys(PLAYERS);
+      const scoreText =
+        PLAYERS[scoreKeys[0]].score === PLAYERS[scoreKeys[1]].score
+          ? ''
+          : PLAYERS[scoreKeys[0]].score > PLAYERS[scoreKeys[1]].score
+          ? scoreKeys[0]
+          : scoreKeys[1];
+
+      if (scoreText !== '') {
+        addClass($('.bc'), scoreText);
+      }
+
+      playSounds('endGame');
+
+      removeClass($('.bc'), 'hi');
+      $('.bc span').textContent = !scoreText ? 'Tied game' : `${scoreText} win`;
+
+      if (online.isPartyMode) {
+        socket.emit('mV', {
+          type: 4,
+          room: GAME_ROOM,
+          scoreText,
+        });
+      }
+    };
+
+    /**
+     * Función que se ejecuta cunado se ha seleccionado un token
+     * @param {*} tokenIndex
+     */
+    const selectToken = (tokenIndex) => {
+      // Se obtiene la data del token seleccionado
+      const token = getValueFromIndex(tokenIndex);
+      // Se valida que el token seleccionado sea del mismo color que tiene el turno
+      if (token.c === COLORS_TOKENS[turn]) {
+        /**
+         * Si el token seleccionado ya tiene la clase 'r' que corresponde al event de girar
+         * Se filtrará de los posibles elementos a capturar que previamente se habían cálculado
+         * Si en caso contrario no tiene la clase, se buscará las posibles posiciones a donde puede llegar el token
+         */
+        const availableMoves = !hasClass($(`#o-${token.id}`), 'r')
+          ? getAvailableMoves(token)
+          : possibleCaptureOpponent.filter((v) => v[0].id === tokenIndex)[0][1];
+
+        if (availableMoves.length) {
+          // Posicionar los elementos de llegada
+          availableMoves.forEach(({ col, row, id = '' }, index) => {
+            const target = $(`#tg-${index}`);
+            /**
+             * Se agregan atributos personalizados al punto de llegado como son:
+             * columna y fila de llegada
+             * El token a mover
+             * Y el id del oponente que se ha eliminado, si es que existe
+             */
+            target.setAttribute('p', `${col}-${row}-${token.id}-${id}`);
+            // Se agrega la clase de visibilidad
+            addClass(target, 'v');
+            // Se establece la posición del punto de llegada
+            addStyle(target, {
+              left: `${row * DIMENSIONS_TILES}px`,
+              top: `${col * DIMENSIONS_TILES}px`,
+            });
+          });
+        }
+      }
+    };
+
+    /**
+     * Función qeu establece la posición a donde llegará un token
+     * Además recibe el valor del indice del token que elimianrá del oponente
+     * @param {*} destinationColumn
+     * @param {*} destinationRow
+     * @param {*} index
+     * @param {*} indexOpponent
+     */
+    const setTokenMovement = (
+      destinationColumn,
+      destinationRow,
+      index,
+      indexOpponent = -1
+    ) => {
+      // Se ontiene el token que se moverá
+      const token = getValueFromIndex(index);
+      const { hasListener = false } = tiles[token.col][token.row];
+      resetTargetPoints();
+      removeClass($(`#o-${index}`), 'sel');
+
+      // Sonido que ha movido el token
+      playSounds('tokenMove');
+
+      /**
+       * Si llega un valor relacionado al index de un oponente,
+       * Se buscará ese token y se eliminará
+       */
+
+      let tokenRemove = {};
+      if (indexOpponent >= 0) {
+        tokenRemove = getValueFromIndex(indexOpponent);
+        tiles[tokenRemove.col][tokenRemove.row] = {};
+        addClass($(`#o-${indexOpponent}`), 're');
+        render404(
+          `${tokenRemove.row * DIMENSIONS_TILES}px`,
+          `${tokenRemove.col * DIMENSIONS_TILES}px`
+        );
+
+        if (
+          (!online.isPartyMode &&
+            tokenRemove.c === OPPOSITE_COLOR &&
+            type !== 2) ||
+          type === 0
+        ) {
+          if ('vibrate' in navigator) {
+            navigator.vibrate(500);
+          }
+        }
+
+        // Sonido que se ha eliminado un token
+        playSounds('removeToken');
+      }
+
+      // Se guarda en la nueva posición, los valores del token
+      // Además se guarda/sobreescriben otras propiedades
+      tiles[destinationColumn][destinationRow] = {
+        ...tiles[token.col][token.row],
+        row: destinationRow,
+        col: destinationColumn,
+        hasListener,
+        counterTransition: 0,
+        removedToken: indexOpponent >= 0,
+        tokenRemove,
+      };
+
+      // Se limpia el valor que estaba en la posición que dejado el vector
+      tiles[token.col][token.row] = {};
+      // Valor que indica que se está haciendo un movimiento
+      tokenMove = true;
+      /**
+       * Establece la nueva posición donde se moverá el token
+       */
+      addStyle($(`#o-${index}`), {
+        left: `${destinationRow * DIMENSIONS_TILES}px`,
+        top: `${destinationColumn * DIMENSIONS_TILES}px`,
+      });
+
+      if (!hasListener) {
+        // Evento que escucha cuando la animación de un token ha finalizado
+        $on($(`#o-${index}`), 'transitionend', (evt) => {
+          const { propertyName } = evt;
+          if (propertyName === 'transform') {
+            removeElement($(`#${evt.target.id}`));
+          } else if (propertyName === 'left' || propertyName === 'top') {
+            // Se obtiene el valor del token
+            const token = getValueFromIndex(+evt.target.id.split('-')[1]);
+            if (++tiles[token.col][token.row].counterTransition === 2) {
+              // Se valida si el token a llegado al terroririo del oponente
+              if (
+                token.arrival === token.col &&
+                !hasClass($(`#${evt.target.id}`), 'c')
+              ) {
+                tiles[token.col][token.row].isKing = true;
+                addClass($(`#${evt.target.id}`), 'c');
+                playSounds('king');
+              }
+              // Indica que ya se puede realizar nuevos movimientos
+              tokenMove = false;
+
+              if (tiles[token.col][token.row].removedToken) {
+                PLAYERS[COLORS_TOKENS[+!turn]].score--;
+
+                $(`.sc-${COLORS_TOKENS[+!turn]}`).textContent =
+                  (PLAYERS[COLORS_TOKENS[+!turn]].score <= 9 ? '0' : '') +
+                  PLAYERS[COLORS_TOKENS[+!turn]].score;
+              }
+
+              // Si ha eliminado un token, validar si puede matar a otro
+              // Se busca si tiene posible elementos para elininar
+              const removedToken = tiles[token.col][token.row].removedToken
+                ? canCaptureOpponent().length !== 0
+                : false;
+
+              if (!removedToken) {
+                turn = +!turn;
+              }
+
+              // Función que traerá los posibles tokens a eliminar
+              possibleCaptureOpponent = canCaptureOpponent();
+
+              // No se detecta que el usuario pueda capturar a un token
+              // Por lo tanto se busca si tiene movimientos disponibles
+              const availableMovements = !possibleCaptureOpponent.length
+                ? getTokensCanMoved(COLORS_TOKENS[turn])
+                : possibleCaptureOpponent;
+
+              // Para bloquear y habilitar los tokens, se envía un array de excepciones
+              // Si es que existen posibles elementos para eliminar
+              enableDisableTokens(
+                availableMovements.map((v) =>
+                  possibleCaptureOpponent.length ? v[0].id : v.id
+                )
+              );
+
+              /**
+               * Se establecerá la clase de girar 'r' al token para indicar que podrá eliminar a otro
+               */
+              possibleCaptureOpponent.forEach((v) => {
+                addClass($(`#o-${v[0].id}`), 'r');
+                // Se le adiciona la clase de link roto a los tokens que se pueden eliminar
+                v[1].forEach((item) => {
+                  addClass($(`#o-${item.id}`), 'bl');
+                });
+              });
+
+              /**
+               * Si el jugador no tiene movimientos disponibles y además no tiene movimientos para capturar
+               * Se determina que está bloqueado y perderá
+               */
+              showTurnMessage(
+                availableMovements.length || possibleCaptureOpponent.length
+              );
+
+              if (
+                !availableMovements.length &&
+                !possibleCaptureOpponent.length
+              ) {
+                determineWinner();
+              } else {
+                if (!PLAYERS[COLORS_TOKENS[turn]].human) {
+                  makeBotMove();
+                }
+
+                if (online.isPartyMode) {
+                  socket.emit('mV', {
+                    type: 2,
+                    user,
+                    room: GAME_ROOM,
+                    color: COLORS_TOKENS[turn],
+                    tokenRemove: tiles[token.col][token.row].tokenRemove,
+                    removeToken: !!possibleCaptureOpponent.length,
+                    data: !possibleCaptureOpponent.length
+                      ? availableMovements.map((v) => ({
+                          ...v,
+                          availableMoves: getAvailableMoves(v),
+                        }))
+                      : possibleCaptureOpponent,
+                  });
+
+                  // Girar el board
+                  INITIAL_COLOR === COLORS_TOKENS[turn]
+                    ? addClass($('.b'), 'ro')
+                    : removeClass($('.b'), 'ro');
+                }
+              }
+            }
+          }
+        });
+      }
+    };
+
+    /**
+     * Realizar el movimiento dle bot
+     */
+    const makeBotMove = debounce(
+      () => {
+        let tokenMove = 0;
+        let tokenDestinity = {};
+        if (!possibleCaptureOpponent.length) {
+          const tokensCanMoved = getTokensCanMoved(COLORS_TOKENS[turn]);
+          tokenMove =
+            tokensCanMoved[randomNumber(0, tokensCanMoved.length - 1)];
+          const possibleDestinations = getAvailableMoves(tokenMove);
+          tokenDestinity =
+            possibleDestinations[
+              randomNumber(0, possibleDestinations.length - 1)
+            ];
+        } else {
+          const indexAtack = randomNumber(
+            0,
+            possibleCaptureOpponent.length - 1
+          );
+          tokenMove = possibleCaptureOpponent[indexAtack][0];
+          const possibleDestinations = possibleCaptureOpponent[indexAtack][1];
+          tokenDestinity =
+            possibleDestinations[
+              randomNumber(0, possibleDestinations.length - 1)
+            ];
+        }
+        const newIndexOpponent =
+          tokenDestinity.id === null || tokenDestinity.id === undefined
+            ? -1
+            : tokenDestinity.id;
+
+        if (!isOnlineGame) {
+          setTokenMovement(
+            tokenDestinity.col,
+            tokenDestinity.row,
+            tokenMove.id,
+            newIndexOpponent
+          );
+        } else {
+          sendFromSocket = true;
+          socket.emit('mV', {
+            type: 1,
+            user,
+            room: GAME_ROOM,
+            movement: [
+              tokenDestinity.col,
+              tokenDestinity.row,
+              tokenMove.id,
+              newIndexOpponent,
+            ],
+          });
+        }
+      },
+      !isOnlineGame ? 500 : 0
+    );
+
+    /**
+     * Para indicar cual jugador tiene un turno
+     * @param {*} msg
+     */
+    const showTurnMessage = (show = true) => {
+      // Quita la clase del turno anterior
+      removeClass($('.bw'), COLORS_TOKENS[+!turn]);
+      removeClass($(`.tu.${COLORS_TOKENS[+!turn]}`), 'sh');
+      // Adciona las clases
+      if (show) {
+        addClass($('.bw'), COLORS_TOKENS[turn]);
+
+        if (!online.isPartyMode) {
+          addClass($(`.tu.${COLORS_TOKENS[turn]}`), 'sh');
+          $(`.tu.${COLORS_TOKENS[turn]}`).textContent =
+            isOnlineGame && !online.isPartyMode ? '10' : 'Your turn';
+        }
+        //Establece el colro en el navegador
+        setThemeColor(COLORS[COLORS_TOKENS[turn]]);
+
+        /**
+         * En partidas online se establecerá un contador de movimiento
+         */
+        if (isOnlineGame && !online.isPartyMode) {
+          intervalCounter = setInterrupt(
+            (counter) => {
+              const printCounter = 9 - counter + 1;
+              if (printCounter <= 3) {
+                playSounds('interval');
+              }
+              if (printCounter >= 0) {
+                $(`.tu.${COLORS_TOKENS[turn]}`).textContent =
+                  (printCounter <= 9 ? '0' : '') + printCounter;
+                if (printCounter === 0) {
+                  if (PLAYERS[COLORS_TOKENS[turn]].local) {
+                    makeBotMove();
+                  }
+                }
+              }
+            },
+            10,
+            1000
+          );
+        }
+      }
+    };
+
+    /**
+     * Habilitará los tokens que tienen el turno
+     * Deshabilitará aquéllos que no lo tienen
+     * Si llega un listado de exceptions para los tokens que tienen el turno
+     * Sólo se dejarán habilitados los tokens de exceptions, los demás se establecerán como disabled
+     * Además quitará la clase de rotación, si es que existe
+     * @param {*} exceptions
+     */
+    const enableDisableTokens = (exceptions = []) => {
+      let setFocus = false;
+      const currentColor = COLORS_TOKENS[turn];
+      const oppositeColor = COLORS_TOKENS[+!turn];
+
+      [getTokensByColor(oppositeColor), getTokensByColor(currentColor)].forEach(
+        (token, index) => {
+          token.forEach(({ id }) => {
+            const tokenID = `#o-${id}`;
+            $(tokenID).disabled = index
+              ? (PLAYERS[currentColor].human && PLAYERS[currentColor].local) ||
+                online.isPartyMode
+                ? !exceptions.length
+                  ? !index
+                  : !exceptions.includes(id)
+                : true
+              : !index;
+
+            removeClass($(tokenID), 'r bl di');
+
+            // Establecer el focus al primer elemento
+            if (
+              index &&
+              !$(tokenID).disabled &&
+              !setFocus &&
+              !online.isPartyMode
+            ) {
+              $(tokenID).focus();
+              setFocus = true;
+            }
+
+            if (
+              index &&
+              ((PLAYERS[currentColor].human && PLAYERS[currentColor].local) ||
+                online.isPartyMode) &&
+              $(tokenID).disabled
+            ) {
+              addClass($(tokenID), 'di');
+            }
+          });
+        }
+      );
+    };
+
+    /**
+     * Dado el color, retornará todos los tokens que existen en el tablero
+     * Retornará un array no una matriz
+     * @param {*} color
+     */
+    const getTokensByColor = (color) =>
+      tiles
+        .map((tem) => tem.filter((v) => Object.keys(v).length && v.c === color))
+        .filter((v) => v.length)
+        .reduce((a, s) => [...a, ...s], []);
+
+    /**
+     * Para saber si una posición dada está dentro dle rango del escenario
+     * @param {*} value
+     */
+    const inRange = (value) => value >= 0 && value < TOTAL_TILES;
+
+    /**
+     * Indica si una celda está libre
+     * @param {*} col
+     * @param {*} row
+     */
+    const isCellFree = (col, row) => Object.keys(tiles[col][row]).length === 0;
+
+    /**
+     * Quita la clase de visibilidad de los puntos de destino
+     */
+    const resetTargetPoints = () => {
+      [...$$('.t-p')].forEach((e) => {
+        removeClass(e, 'v');
+      });
+    };
+
+    /**
+     * Para habilitar o deshabilitar los emojis
+     * @param {*} disabled
+     */
+    const resetEmojis = (disabled = true) => {
+      [...$$('.ems')].forEach((e) => {
+        e.disabled = disabled;
+      });
+    };
+
+    /**
+     * Dado el index de un token seleccionado,
+     * devolverá la data del mismo
+     * @param {*} index
+     */
+    const getValueFromIndex = (index) => {
+      for (let col = 0; col < TOTAL_TILES; col++) {
+        for (let row = 0; row < TOTAL_TILES; row++) {
+          if (
+            Object.keys(tiles[col][row]).length &&
+            tiles[col][row].id === index
+          ) {
+            return tiles[col][row];
+          }
+        }
+      }
+    };
+
+    /**
+     * Función que revisa si al que tiene el turno puede capturar a otro token del adversario
+     * Primero filtrar sólo los tokens del usuario que tiene el turno
+     */
+    const canCaptureOpponent = () =>
+      getTokensByColor(COLORS_TOKENS[turn])
+        .map((token) => {
+          const opponentsPosition = getAvailableMoves(token, true)
+            .filter(
+              (v) =>
+                inRange(v.col + v.direction) &&
+                inRange(v.row + v.position) &&
+                isCellFree(v.col + v.direction, v.row + v.position)
+            )
+            .map((v) => ({
+              ...v,
+              col: v.col + v.direction,
+              row: v.row + v.position,
+            }));
+          return opponentsPosition.length ? [token, opponentsPosition] : [];
+        })
+        .filter((v) => v.length && v[1].length);
+
+    /**
+     * Saber si un token tiene posiociones disponibles
+     * Además validará si es posible capturar a un adversario, si este se encuentra en las posiciones de llegada
+     * @param {*} param0
+     * @param {*} captureAdversary
+     */
+    const getAvailableMoves = (
+      { isKing = false, col, row, d, c },
+      captureAdversary = false
+    ) => {
+      return [1, -1]
+        .map((direction, i) =>
+          [1, -1]
+            .map((position, j) => {
+              return (isKing || direction === d) &&
+                inRange(col + direction) &&
+                inRange(row + position) &&
+                ((!captureAdversary &&
+                  isCellFree(col + direction, row + position)) ||
+                  (captureAdversary &&
+                    !isCellFree(col + direction, row + position) &&
+                    tiles[col + direction][row + position].c !== c))
+                ? {
+                    col: col + direction,
+                    row: row + position,
+                    direction,
+                    position,
+                    id: tiles[col + direction][row + position].id,
+                    counter: tiles[col + direction][row + position].counter,
+                    target: i + j + i,
+                  }
+                : false;
+            })
+            .filter((v) => v)
+        )
+        .reduce((a, s) => [...a, ...s], []);
+    };
+
+    /**
+     * Rertonará el listado de tokens que puede mover un usuario dependiendo de su color
+     * @param {*} color
+     */
+    const getTokensCanMoved = (color) => {
+      return getTokensByColor(color).filter((v) => {
+        return getAvailableMoves(v).length;
+      });
+    };
+
+    /**
+     * Función que renderizará los elementos que indican a dónde llegarán los tokens
+     */
+    const renderTargetPoints = () =>
+      [...new Array(4)]
+        .map((_, index) => `<button class=t-p id=tg-${index}></button>`)
+        .join('');
+
+    /**
+     * Renderiza los tokens del escenario
+     * @param {*} isTile
+     */
+    const renderTokens = () =>
+      tiles
+        .map((title) =>
+          title
+            .map((value) =>
+              Object.keys(value).length
+                ? `<button color=${value.c} disabled class='${`t-e ${
+                    online.isPartyMode ? `cc-${value.counter}` : ''
+                  } ${value.c}`}' style='${`left : ${
+                    value.row * DIMENSIONS_TILES
+                  }px; top : ${value.col * DIMENSIONS_TILES}px`};' id=o-${
+                    value.id
+                  }></button>`
+                : ''
+            )
+            .join('')
+        )
+        .join('');
+
+    // getColorTokens
+
+    /**
+     * Renderiza los mensajes que indica el turno
+     * Además servirá para indicar le tiempo para una jugada
+     */
+    const renderTurns = () =>
+      ['to', 'bo']
+        .map(
+          (v, i) =>
+            `<div class='tu ${v} ce ${
+              !i ? INITIAL_COLOR : OPPOSITE_COLOR
+            }'></div>`
+        )
+        .join('');
+
+    /** Renderiza el Score */
+    const renderScore = () =>
+      `<div class='sc ce'>${[INITIAL_COLOR, OPPOSITE_COLOR]
+        .map((v) => `<span class=sc-${v}>${PLAYERS[v].score}</span>`)
+        .join('')}</div>`;
+
+    /**
+     * Para renderizar los emojis del chat
+     */
+    const renderEmojis = () => {
+      return isOnlineGame && !online.isPartyMode
+        ? `<div class='ch-s'></div><div class='ch'><div class='ch-w'>${EMOJIS.map(
+            (v, i) => {
+              return `<button id=em-${i} class='ems'>${v}</button>`;
+            }
+          ).join('')}</div></div>`
+        : '';
+    };
+
+    // Inyecta el html creado
+    setHtml(
+      $('.s'),
+      `<div class='bw wh ce'>
+        <button class=cl>EXIT</button>
+        ${renderTurns()}
+        ${renderScore()}
+        <div class=b style='height : ${DIMENSIONS_TILES * TOTAL_TILES + 20}px'>
+          ${renderTokens()}${renderTargetPoints()}${renderEmojis()}
+        </div>
+        <div class='bc wh ce'><span></span><button class=cl>EXIT</button></div>
+      </div>`
+    );
+
+    /**
+     * Establece los eventos
+     * t-p corresponde a los punto de llegada
+     * t-e corresponde a los tokens
+     */
+
+    ['t-p', 't-e'].forEach((event) => {
+      [...$$(`.${event}`)].forEach((elemet) => {
+        const addEvent =
+          event === 't-e'
+            ? PLAYERS[elemet.getAttribute('color')].human &&
+              PLAYERS[elemet.getAttribute('color')].local &&
+              !online.isPartyMode
+            : true;
+
+        if (addEvent) {
+          $on(elemet, 'click', (e) => {
+            if (!tokenMove && !sendFromSocket) {
+              if (isOnlineGame && intervalCounter) {
+                clearInterval(intervalCounter);
+              }
+              if (!online.isPartyMode) {
+                // Quita la calse de visibilidad de los puntos de llegada
+                resetTargetPoints();
+              }
+              const idElement = e.target.id.split('-');
+              // "o" indica que es un token
+              if (idElement[0] === 'o') {
+                playSounds('click');
+                selectToken(+idElement[1]);
+              } else {
+                if (!online.isPartyMode) {
+                  const [
+                    destinationColumn,
+                    destinationRow,
+                    index,
+                    indexOpponent,
+                  ] = e.target.getAttribute('p').split('-');
+                  const newIndexOpponent =
+                    indexOpponent === '' ? -1 : +indexOpponent;
+                  if (!isOnlineGame) {
+                    setTokenMovement(
+                      +destinationColumn,
+                      +destinationRow,
+                      +index,
+                      newIndexOpponent
+                    );
+                  } else {
+                    sendFromSocket = true;
+                    socket.emit('mV', {
+                      type: 1,
+                      user,
+                      room: GAME_ROOM,
+                      movement: [
+                        +destinationColumn,
+                        +destinationRow,
+                        +index,
+                        newIndexOpponent,
+                      ],
+                    });
+                  }
+                }
+              }
+            }
+          });
+        }
+      });
+    });
+
+    if (isOnlineGame && !online.isPartyMode) {
+      [...$$('.ems')].forEach((emoji) => {
+        $on(emoji, 'click', (e) => {
+          playSounds('emoji');
+          resetEmojis();
+          const idElement = e.target.id.split('-');
+          addClass($(`#em-${+idElement[1]}`), 'seb');
+          socket.emit('mV', {
+            type: 5,
+            user,
+            room: GAME_ROOM,
+            emoji: +idElement[1],
+          });
+
+          setTimeout(() => {
+            resetEmojis(false);
+            removeClass($(`#em-${+idElement[1]}`), 'seb');
+          }, 4000);
+        });
+      });
+    }
+
+    $on($('.cl'), 'click', () => {
+      playSounds('click');
+      if (intervalStart) {
+        clearInterval(intervalStart);
+      }
+
+      if (intervalCounter) {
+        clearInterval(intervalCounter);
+      }
+
+      if (isOnlineGame && socket) {
+        disconnectSocket();
+      }
+
+      lobby();
+    });
+
+    if (isOnlineGame && socket) {
+      socket.on('rV', (data) => {
+        if (isOnlineGame && intervalCounter) {
+          clearInterval(intervalCounter);
+        }
+        sendFromSocket = false;
+
+        const sameLocalUser = data.user === user || online.isPartyMode;
+        let [
+          destinationColumn,
+          destinationRow,
+          index,
+          newIndexOpponent,
+        ] = data.movement;
+
+        if (!sameLocalUser) {
+          index = 23 - index;
+          destinationColumn = 7 - destinationColumn;
+          destinationRow = 7 - destinationRow;
+          newIndexOpponent =
+            newIndexOpponent >= 0 ? 23 - newIndexOpponent : newIndexOpponent;
+        }
+
+        setTokenMovement(
+          destinationColumn,
+          destinationRow,
+          index,
+          newIndexOpponent
+        );
+      });
+
+      socket.on('gD', () => {
+        if (intervalStart) {
+          clearInterval(intervalStart);
+        }
+
+        if (intervalCounter) {
+          clearInterval(intervalCounter);
+        }
+
+        determineWinner();
+
+        if (isOnlineGame && socket) {
+          disconnectSocket();
+        }
+      });
+
+      /**
+       * Selecciona un token y el board y se muestra en el tablero
+       * Usado en party mode
+       */
+      socket.on('sT', (data) => {
+        resetTargetPoints();
+
+        // Mostrar los movimiento disponibles en el token seleccionado
+        [...$$('.t-e')].forEach((e) => {
+          removeClass(e, 'sel');
+        });
+
+        addClass($(`#o-${data.id}`), 'sel');
+
+        selectToken(data.id);
+      });
+
+      socket.on('rE', (data) => {
+        if (user !== data.user) {
+          playSounds('emoji');
+          $('.ch-s').textContent = EMOJIS[data.emoji];
+          addClass($('.ch-s'), 'an');
+          setTimeout(() => {
+            if ($('.ch-s')) {
+              removeClass($('.ch-s'), 'an');
+            }
+          }, 4000);
+        }
+      });
+
+      // Se emite el movimiento inicial a los clientes
+      if (online.isPartyMode) {
+        socket.emit('mV', {
+          type: 2,
+          user,
+          room: GAME_ROOM,
+          color: COLORS_TOKENS[turn],
+          data: getTokensCanMoved(COLORS_TOKENS[turn]).map((v) => ({
+            ...v,
+            availableMoves: getAvailableMoves(v),
+          })),
+        });
+      }
+    }
+  };
+
+  /**
+   * Para manejar el escalado del juego
+   */
+  const onWindowResize = debounce(() => {
+    const { w, h } = getDimensionsScreen();
+    const scale = Math.min(w / DIMENSIONS[0], h / DIMENSIONS[1]);
+    const mobile = isMobile();
+    addStyle($('body'), {
+      zoom: `${
+        w < DIMENSIONS[0] ? Math.round((w / DIMENSIONS[0]) * 100) : 100
+      }%`,
+      transform:
+        scale >= 1 || mobile ? `scale(${!mobile ? scale : 1})` : undefined,
+    });
+  }, 100);
+
+  /**
+   * Función principal del juego
+   */
+  const init = () => {
+    const style = document.createElement('style');
+    let customColor = '';
+    for (let color in COLORS) {
+      document.documentElement.style.setProperty(`--c-${color}`, COLORS[color]);
+      customColor += [...new Array(12)]
+        .map(
+          (_, i) =>
+            `.cc-${i}.${color}:after{background:${getColorTokens(color, i)}}`
+        )
+        .join('');
+    }
+
+    setHtml(style, customColor);
+    $('head').appendChild(style);
+
+    addStyle($('.s'), {
+      width: `${DIMENSIONS[0]}px`,
+      height: `${DIMENSIONS[1]}px`,
+    });
+
+    lobby();
+    $on(window, 'resize', onWindowResize);
+    onWindowResize();
+
+    // getColorTokens
+  };
+
+  /**
+   * Para desconectar el socket
+   */
+  const disconnectSocket = () => {
+    if (connectedSocket && socket) {
+      connectedSocket = false;
+      GAME_ROOM = '';
+      socket.disconnect();
+    }
+  };
+
+  /**
+   * Configura el socket
+   */
+  const configureSocket = (options = {}) => {
+    socket = io();
+    connectedSocket = true;
+
+    // Envia la data del usuario actual al server y busca un jugador
+    socket.on('connect', () => {
+      socket.emit('nU', { ...options, user }, (error) => {
+        if (error) {
+          alert(error);
+          if ($('.clm')) {
+            addClass($('.bc'), 'hi');
+          } else {
+            lobby();
+          }
+          disconnectSocket();
+        }
+      });
+    });
+
+    /**
+     * Evento que indica que se hizo match en el juego
+     */
+    socket.on('sG', (data) => {
+      GAME_ROOM = data.room;
+      const { color } = data.p1.user === user ? data.p1 : data.p2;
+      if (data.type !== 3) {
+        createBoard(modeType, {
+          baseColor: color,
+          initialTurn: data.turn,
+        });
+      } else {
+        // Es de tipo party mode
+        if (data.table && data.table.user === user) {
+          // Indica que renderizará el tablero
+          createBoard(modeType, {
+            baseColor: data.turn,
+            initialTurn: data.turn,
+            isPartyMode: true,
+          });
+        } else {
+          // Renderizará un control
+          renderControl(color, data.turn);
+        }
+      }
+    });
+  };
+
+  $on(document, 'contextmenu', (event) => event.preventDefault());
+
+  console.log(
+    '%cGame Developed by Jorge Rubiano https://twitter.com/ostjh',
+    'color:red; font-size:20px; font-weight: bold; background-color: black;'
+  );
+
+  $on(window, 'load', init);
+})();
