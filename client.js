@@ -349,7 +349,7 @@
         <div class='cb ce'>
           ${renderButtons()}
         </div>
-        <h3>Developed by: <a href='https://twitter.com/ostjh' target='_blank' rel='noopener noreferrer'>Jorge Rubiano</h3>
+        <h3>Developed by: <span target='_blank' rel='noopener noreferrer'>Haruki Andrews</h3>
       </div>`
     );
 
@@ -399,7 +399,7 @@
           .share({
             title: 'The last link',
             text:
-              'Play The last link #js13k 2020 edition by Jorge Rubiano @ostjh',
+              'Play The last link 2020 edition by Haruki Andrews',
             url: location.href,
           })
           .then(() => {
@@ -1825,7 +1825,7 @@
   $on(document, 'contextmenu', (event) => event.preventDefault());
 
   console.log(
-    '%cGame Developed by Jorge Rubiano https://twitter.com/ostjh',
+    '%cGame Developed by Haruki Andrews',
     'color:red; font-size:20px; font-weight: bold; background-color: black;'
   );
 
